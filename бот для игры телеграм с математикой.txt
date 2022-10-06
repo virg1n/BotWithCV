@@ -1,0 +1,151 @@
+import pytesseract
+from PIL import Image
+from PIL import ImageGrab
+from mss import mss
+import pyautogui
+import time
+
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+
+
+# while True:
+#     try:
+#         image = ImageGrab.grab(bbox=(390, 530, 643, 590))
+#         image.save('screen.png')
+#
+#         img = Image.open('screen.png')
+#         problem = pytesseract.image_to_string(img)
+#         for i in range(len(problem) - 2):
+#             if i == 0:
+#                 ans = int(problem[i])
+#             else:
+#                 if i % 2 == 0:
+#                     if problem[i - 1] == "-":
+#                         ans -= int(problem[i])
+#                     else:
+#                         ans += int(problem[i])
+#         if a < 100:
+#             if ans == 1:
+#                 pyautogui.click(x=565, y=633)
+#             elif ans == 2:
+#                 pyautogui.click(x=644, y=711)
+#             else:
+#                 pyautogui.click(x=629, y=765)
+#                 # print(ans)
+#             a += 1
+#     except:
+#         pass
+    # return(ans)
+#
+# for i in range(50):
+#     time.sleep(2)
+#     image = ImageGrab.grab(bbox=(450, 535, 643, 630))
+#     image.save('screen.png')
+#     img = Image.open('screen.png')
+#     problemm = pytesseract.image_to_string(img)
+#     print(problemm)
+#     try:
+#         problem = list(problemm)
+#         for i in range(len(problem) - 2):
+#             # if int(problem[i]) == 14:
+#             #     problem[i] = 1
+#
+#             if i == 0:
+#                 ans = int(problem[i])
+#             else:
+#                 if i % 2 == 0 and str(problem[i]) == 1 and str(problem[i+1]) == 4:
+#                     problem.pop(i+1)
+#                 if i % 2 == 0:
+#                     if problem[i - 1] == "-":
+#                         ans -= int(problem[i])
+#                     else:
+#                         ans += int(problem[i])
+#         print(ans)
+#         if ans == 1:
+#             pyautogui.click(x=565, y=633)
+#         elif ans == 2:
+#             pyautogui.click(x=644, y=711)
+#         else:
+#             pyautogui.click(x=629, y=770)
+#     except:
+#         # print(1)
+#         pass
+
+
+for i in range(70):
+    time.sleep(2)
+    image = ImageGrab.grab(bbox=(320, 539, 720, 640))
+    image.save('screen.png')
+    img = Image.open('screen.png')
+    problemm = pytesseract.image_to_string(img)
+    print(problemm)
+    problem = list(problemm)
+    print(len(problem))
+    print(problem)
+            if str(problem[i]) == str(4):
+            if (str(problem[i-1]) == str(1) or str(problem[i-1]) == str(2) or str(problem[i-1]) == str(3)) and(str(problem[i+1]) == str(1) or str(problem[i+1]) == str(2) or str(problem[i+1]) == str(3)):
+                problem[i] = "+"
+            elif str(problem[i - 1]) == "3" or str(problem[i - 1]) == "5" or str(problem[i - 1]) == "2" or str(problem[i - 1]) == "1":
+                problem.pop(i)
+            else:
+                problem[i] = 1
+        elif str(problem[i]) == str(5):
+            if (str(problem[i-1]) == str(1) or str(problem[i-1]) == str(2) or str(problem[i-1]) == str(3)) and(str(problem[i+1]) == str(1) or str(problem[i+1]) == str(2) or str(problem[i+1]) == str(3)):
+                problem[i] = "+"
+            elif str(problem[i-1]) == "3" or str(problem[i-1]) == "5":
+                problem.pop(i)
+            else:
+                problem[i] = 3
+    print(problem)
+    for i in range(len(problem) - 3):
+        # if int(problem[i]) == 14:
+        #     problem[i] = 1
+        try:
+            if i == 0:
+                ans = int(problem[i])
+            else:
+                # if str(problem[i+1]) == str(4) or str(problem[i+1]) == str(5):
+                #     problem.pop(i)
+                if i % 2 == 0:
+                    # print(problem[i])
+                    if problem[i - 1] == "-":
+                        ans -= int(problem[i])
+                    else:
+                        ans += int(problem[i])
+        except:
+            pass
+    print(ans)
+    if ans == 1:
+        pyautogui.click(x=565, y=633)
+    elif ans == 2:
+        pyautogui.click(x=644, y=711)
+    else:
+        pyautogui.click(x=629, y=770)
+
+
+# image = ImageGrab.grab(bbox=(450, 535, 643, 610))
+# image.save('screen.png')
+# img = Image.open('screen.png')
+# problem = pytesseract.image_to_string(img)
+# print(problem)
+    # try:
+    #     # image = ImageGrab.grab(bbox=(390, 535, 643, 590))
+    #     # image.save('screen.png')
+    #     # img = Image.open('screen.png')
+    #     # problem = pytesseract.image_to_string(img)
+    #     for i in range(len(problem) - 2):
+    #
+    #         if i == 0:
+    #             ans = int(problem[i])
+    #         else:
+    #             if i % 2 == 0:
+    #                 if problem[i - 1] == "-":
+    #                     ans -= int(problem[i])
+    #                 else:
+    #                     ans += int(problem[i])
+    #     print(ans)
+
+
+# print(toAns(problem))
+# print(pyautogui.position())
+# x, y = pyautogui.position()
